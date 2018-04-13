@@ -1,17 +1,13 @@
 //Requires
 
 const SteamUser = require('steam-user');
-const SteamTotp = require('steam-totp');
-const SteamCommunity = require('steamcommunity');
 const TradeOffersManager = require('steam-tradeoffer-manager');
 const config = require('./config.json');
 const fs = require('fs');
 
-console.log("Loaded nodejs and required files !");
 //Initiating
 
 const client = new SteamUser();
-const community = new SteamCommunity();
 const manager = new TradeOffersManager({
         steam :client,
         community:community,
@@ -26,13 +22,12 @@ manager.getUserInventoryContents(config.mySteam,config.appId,config.conId,config
   } else {
     console.log(inventory);
     var invString = JSON.stringify(inventory);
-    fs.writeFile(config.outName,invString, (err) => {
+    fs.writeFile(config.mySteam,invString, (err) => {
       if(err){
         console.log(err);
       } else {
-        console.log("Wrote to file : " + config.outName)
+        console.log("Wrote to file : " + config.mySteam)
       }
     });
-    // process.exit(1);
   }
 });
