@@ -4,7 +4,8 @@
   "description": "A simple NodeJS program to get user's inventory and save it to a file",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot"
   },
   "author": "DentFuse",
   "license": "ISC",
